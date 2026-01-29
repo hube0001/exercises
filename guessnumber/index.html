@@ -8,9 +8,19 @@
 </head>
 
 <body>
-    <h1>KAN DU GÆTTE TALLET?</h1>
-    <p></p>
+    <h1>CAN YOU GUESS THE NUMBER?</h1>
 
+    <div class="box">
+        <input id="input" placeholder="Enter number">
+        <p id="feedback"></p>
+        <button id="button">TRY</button>
+    </div>
+
+
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+
+    <dotlottie-wc id="win" src="https://lottie.host/11e7b891-66ad-4dff-967d-f59b718ff3e6/8pGDR1rxVm.lottie"
+        style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
     <script src="index.js"></script>
 </body>
 
@@ -21,11 +31,33 @@
         text-align: center;
     }
 
-    p {
+    .box {
         margin: auto;
         width: 300px;
         height: 300px;
         background-color: bisque;
         border-radius: 20px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        width: 180px;
+        height: 30px;
+        text-align: center;
+    }
+
+    button {
+        height: 30px;
+        width: 80px;
+        cursor: pointer;
+    }
+
+    #win {
+        display: none;
+        margin: 50px auto;
     }
 </style>
