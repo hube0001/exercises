@@ -9,14 +9,110 @@
 
 <body>
 
-    <table>
+    <h1>Breadcrumb Generator</h1>
 
-        <head>
+    <nav id="breadcrumb-container"></nav>
 
-        </head>
+    <button id="generate-btn">Generate breadcrumbs</button>
 
-    </table>
-
+    <script src="crumb.js"></script>
 </body>
 
 </html>
+
+<style>
+    body {
+        background-color: rgb(100, 60, 45);
+        text-align: center;
+    }
+
+    h1 {
+        color: aliceblue;
+        margin-top: 200px;
+        text-align: center;
+        transition: margin-bottom 0.3s ease;
+    }
+
+    h1.breadcrumbs-active {
+        margin-bottom: 50px;
+        /* Mere plads under h1 */
+    }
+
+    /* Container for breadcrumbs */
+    #breadcrumb-container {
+        margin: 20px 0;
+        min-height: 0;
+        /* Starter med 0 højde når den er tom */
+        transition: margin 0.3s ease;
+        /* Smooth animation */
+    }
+
+    /* Når breadcrumbs er synlige, giv mere plads */
+    #breadcrumb-container.active {
+        margin: 30px 0 40px 0;
+        /* Top og bund margin øges */
+    }
+
+    /* Uordnet liste styling */
+    #breadcrumb-container ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Centrerer breadcrumbs */
+    }
+
+    /* Hvert listeelement */
+    #breadcrumb-container li {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Links i breadcrumbs */
+    #breadcrumb-container a {
+        color: aliceblue;
+        text-decoration: underline;
+        padding: 5px 8px;
+    }
+
+    #breadcrumb-container a:hover {
+        color: #003d7a;
+    }
+
+    /* Det sidste element (uden link) */
+    #breadcrumb-container li:last-child {
+        color: aliceblue;
+        font-weight: normal;
+    }
+
+    /* Skråstregen mellem elementer */
+    #breadcrumb-container li:not(:last-child)::after {
+        content: " / ";
+        margin: 0 8px;
+        color: #666;
+    }
+
+    /* Knap styling */
+    #generate-btn {
+        padding: 12px 24px;
+        font-size: 16px;
+        border: 2px solid #333;
+        background: white;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: margin-top 0.8s ease;
+        /* Smooth animation */
+    }
+
+    /* Når breadcrumbs er synlige, skub knappen ned */
+    #generate-btn.breadcrumbs-active {
+        margin-top: 30px;
+        /* Ekstra plads over knappen */
+    }
+
+    #generate-btn:hover {
+        background: #f0f0f0;
+    }
+</style>
